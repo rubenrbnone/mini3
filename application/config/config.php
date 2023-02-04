@@ -59,3 +59,13 @@ define('DB_NAME', 'apio');
 define('DB_USER', 'ruben');
 define('DB_PASS', 'ruben');
 define('DB_CHARSET', 'utf8');
+
+/**
+ * Datos de configuración a la base de 10.80.10.12 rocky
+ */
+define('DB_TYPE00', 'mysql');
+define('DB_HOST00', 'EL_REMOTO');
+define('DB_NAME00', 'BASE_REMOTA');
+define('DB_USER00', 'ruben');
+define('DB_PASS00', 'ruben');
+define('DB_CHARSET00', 'utf8');

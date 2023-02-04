@@ -293,6 +293,34 @@ Please commit into the develop branch (which holds the in-development version), 
 
 ## Changelog
 
+**Enero 2023**
+
+- [rubenrbnone] Añadido la fuente de varias bases remotas.
+```php
+    /**
+     * FUNCION DE CONEXIÓN A LA BASE DE LAS BASES EXTERNAS
+     */
+    function adhDB()
+    {
+        $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
+
+        $this->db43 = new PDO(DB_TYPE43 . ':host=' . DB_HOST43 . ';dbname=' . DB_NAME43 . ';charset=' . DB_CHARSET43, DB_USER43, DB_PASS43, $options);
+        return $this->db43;
+    }
+
+    public function atelier()
+    {
+        $sql = "SELECT nombre, puesto, extension, departamento FROM usuarios";
+//      AQUI TOMAMOS LA SEGUNDA CONEXIÓN, NO LA PRIMERA CLASE/FUNCION
+        $dbx = Model::adhDB();
+        $query = $dbx->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+```
+
+
 **August 2016**
 
 - [panique] fix for weird lowercase/uppercase path problem (also big thanks to @snickbit & @ugurozturk for the fix!)
